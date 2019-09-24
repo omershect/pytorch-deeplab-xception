@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from modeling.sync_batchnorm.batchnorm import SynchronizedBatchNorm2d
+#from modeling.sync_batchnorm.batchnorm import SynchronizedBatchNorm2d
 from modeling.aspp import build_aspp
 from modeling.decoder import build_decoder
 from modeling.backbone import build_backbone
@@ -13,10 +13,10 @@ class DeepLab(nn.Module):
         if backbone == 'drn':
             output_stride = 8
 
-        if sync_bn == True:
-            BatchNorm = SynchronizedBatchNorm2d
-        else:
-            BatchNorm = nn.BatchNorm2d
+  #      if sync_bn == True:
+  #          BatchNorm = SynchronizedBatchNorm2d
+  #      else:
+         BatchNorm = nn.BatchNorm2d
 
         self.backbone = build_backbone(backbone, output_stride, BatchNorm)
         self.aspp = build_aspp(backbone, output_stride, BatchNorm)
