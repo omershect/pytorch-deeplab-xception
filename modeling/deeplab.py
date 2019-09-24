@@ -16,7 +16,7 @@ class DeepLab(nn.Module):
   #      if sync_bn == True:
   #          BatchNorm = SynchronizedBatchNorm2d
   #      else:
-         BatchNorm = nn.BatchNorm2d
+        BatchNorm = nn.BatchNorm2d
 
         self.backbone = build_backbone(backbone, output_stride, BatchNorm)
         self.aspp = build_aspp(backbone, output_stride, BatchNorm)
